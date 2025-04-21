@@ -1,0 +1,13 @@
+train: /root/timmies_train/datasets_added/train/images
+val: /root/timmies_train/datasets_added/valid/images
+test: /root/timmies_train/datasets_added/test/images
+
+nc: 2
+names: ['paper_cup', 'timmies']
+
+roboflow:
+  workspace: nothing-pyaaj
+  project: added
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/nothing-pyaaj/added/dataset/1

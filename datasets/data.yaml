@@ -3,7 +3,7 @@ val: /root/timmies_train/datasets/valid/images
 test: /root/timmies_train/datasets/test/images
 
 nc: 2
-names: ['0', '1']
+names: ['paper_cup', 'timmies']
 
 roboflow:
   workspace: nothing-pyaaj
