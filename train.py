@@ -8,7 +8,7 @@ def train_yolo():
 
     # 训练参数
     model.train(
-        data="./dataset/data.yaml",  
+        data="./datasets/data.yaml",  
         device="cuda",  # 使用 GPU
         project="runs/refine_train",
         name="refine_train",
@@ -28,7 +28,7 @@ def export_val_predictions():
 
     # 预测验证集（val）上的所有图像并保存结果
     results = model.predict(
-        source=r"./dataset/valid/images",  # val 图像路径
+        source=r"./datasets/valid/images",  # val 图像路径
         conf=0.25,                # 置信度阈值
         save=True,                # 保存预测图像
         save_txt=True,            # 保存预测框标签文件（YOLO格式）
@@ -45,7 +45,7 @@ def export_test_predictions():
 
     # 预测验证集（val）上的所有图像并保存结果
     results = model.predict(
-        source=r"./dataset/test/images",  # val 图像路径
+        source=r"./datasets/test/images",  # val 图像路径
         conf=0.25,                # 置信度阈值
         save=True,                # 保存预测图像
         save_txt=True,            # 保存预测框标签文件（YOLO格式）
@@ -57,9 +57,9 @@ def export_test_predictions():
 def test_yolo():
     # 加载训练完成的模型
     print("This is test!!!!!!!!!!!!!!!!")
-    model = YOLO(r"/root/timmies/runs/PreTrain_noaugment/PreTrain_noaugment/weights/best.pt")
+    model = YOLO(r"./runs/refine_train/weights/best.pt")
     # 在测试集上评估模型
-    metrics = model.val(data="./dataset/data.yaml", split="test")
+    metrics = model.val(data="./datasets/data.yaml", split="test")
     
     print(metrics) 
 if __name__ == "__main__":
